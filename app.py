@@ -22,13 +22,11 @@ MODELS = {
 
 @app.route("/", methods=["GET"])
 def home():
-    # Redirect root URL to the UI. Keep the API description available at /api
     return redirect(url_for('ui_predict'))
 
 
 @app.route("/api", methods=["GET"])
 def api_info():
-    """Return the API info/description (previously served at /)."""
     return jsonify({
         "message": "Product Group & Revenue Prediction API is running.",
         "endpoints": {
@@ -168,18 +166,18 @@ def predict_all():
         return jsonify({"error": f"Failed to prepare/predict: {str(e)}"}), 500
 
     resp = {
-        # canonical (snake_case) keys
+       
         "product_group": Group_info.get("cluster_name"),
         "business": Group_info.get("description"),
         "recommended_action": Group_info.get("recommended_action"),
         "next_month_revenue": pred_formatted,
-        # compatibility keys for older frontend versions
+      
         "Models": [group_model, model_name],
         "Product Group": Group_info.get("cluster_name"),
         "Description": Group_info.get("description"),
         "Recommendation": Group_info.get("recommended_action"),
         "Next Month Revenue": pred_formatted,
-        # additional fallbacks
+
         "cluster_name": Group_info.get("cluster_name"),
         "description": Group_info.get("description"),
         "next_month_revenue_formatted": pred_formatted

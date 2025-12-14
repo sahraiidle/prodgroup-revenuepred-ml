@@ -10,30 +10,6 @@ This project provides an end-to-end pipeline for grouping products based on sale
 - **Modular Codebase:** Clean separation of data processing, modeling, and API logic.
 - **Documentation:** Workflow and business interpretation included.
 
-## 📁 Project structure
-
-```
-.
-├── clustering_results/        # elbow + PCA cluster plots (png)
-├── dataset/
-│   ├── processed/             # aggregated & product-level CSVs
-│   └── raw/                   # raw CSVs and cleaned CSV
-├── models/                    # saved scalers & model .joblib/.pkl files
-├── regression_results/        # model metrics + plots
-├── templates/                 # forms.html (Flask UI)
-├── venv/                      # optional virtual environment
-├── .gitignore                 # Files/folders to ignore in git
-├── app.py                     # Flask API + UI route (/ui)
-├── business_interpretation.py # cluster -> business text mapping
-├── clustering.py              # clustering pipeline (elbow, KMeans, DBSCAN)
-├── forms.py                   # Flask-WTF form for UI
-├── LICENSE                    # Project license
-├── prepare_regression_data.py # aggregation & lag features script
-├── processing.py              # cleaning & feature engineering script
-├── README.md                  # this file
-├── regression.py              # regression training & evaluation
-├── requirements.txt           # Python dependencies
-└── utils.py                   # helpers used by app and tests
 ```
 
 ## 🚀 Quick start (4 steps)
